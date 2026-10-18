@@ -37,7 +37,7 @@ return [
     |
     */
 
-    'title' => 'Aura Admin',
+    'title' => 'LuxSkin Admin',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -77,12 +77,12 @@ return [
     |
     */
 
-    'logo' => '<b>Aura</b> Admin',
+    'logo' => '<b>Lux</b>Skin',
     'logo_img' => 'vendor/adminlte/dist/assets/img/AdminLTELogo.png',
     'logo_img_class' => 'brand-image opacity-75 shadow',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs opacity-75',
-    'logo_img_alt' => 'Aura Admin Logo',
+    'logo_img_alt' => 'LuxSkin Logo',
 
     /*
     |--------------------------------------------------------------------------
@@ -396,7 +396,7 @@ return [
 
     'color_mode' => [
         'enabled' => true,
-        'default' => 'auto',
+        'default' => 'light',
         'remember' => true,
         'no_flash_script' => true,
 
@@ -410,7 +410,7 @@ return [
         // some browsers to colorize parts of their user interface.
 
         'theme_color' => [
-            'light' => '#0d6efd',
+            'light' => '#f4b8d0',
             'dark' => '#1a1a1a',
         ],
     ],
@@ -523,7 +523,7 @@ return [
     |
     */
 
-    'classes_body' => 'bg-body-tertiary',
+    'classes_body' => 'bg-light',
     'classes_brand' => '',
     'classes_brand_text' => 'fw-light',
     'classes_wrapper' => '',
@@ -533,7 +533,7 @@ return [
     'classes_content' => '',
     'classes_content_top_area' => '',
     'classes_content_bottom_area' => '',
-    'classes_sidebar' => 'bg-body-secondary shadow',
+    'classes_sidebar' => 'bg-white shadow-sm',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'bg-body',
     'classes_topnav_nav' => 'navbar-expand',
@@ -555,7 +555,7 @@ return [
     // the classic AdminLTE dark sidebar, 'light' for a light one, or null to
     // inherit the color mode of the page. Any other value is read as 'dark'.
 
-    'sidebar_theme' => 'dark',
+    'sidebar_theme' => 'light',
 
     // Behavior of the sidebar. The mini mode keeps the icons of a collapsed
     // sidebar visible, 'sidebar_collapse' starts the panel with the sidebar
@@ -767,11 +767,7 @@ return [
         // Navbar items
         [
             'type' => 'navbar-search',
-            'text' => 'Cari',
-            'topnav_right' => true,
-        ],
-        [
-            'type' => 'darkmode-widget',
+            'text' => 'Cari menu...',
             'topnav_right' => true,
         ],
         [
@@ -779,7 +775,7 @@ return [
             'topnav_right' => true,
         ],
 
-        // Menu utama Aura
+        // Menu utama LuxSkin
         ['header' => 'MENU UTAMA'],
         [
             'text' => 'Dashboard',
