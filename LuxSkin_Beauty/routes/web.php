@@ -5,20 +5,21 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\GambarProdukController;
 
 // ==========================================
 // CUSTOMER WEBSITE
-// Domain: luxskinbeauty.com
 // ==========================================
 
 Route::domain(env('APP_DOMAIN', '127.0.0.1'))->group(function () {
 
-    // Homepage & Product Catalog
     Route::get('/', [StoreController::class, 'home'])->name('home');
     Route::get('/produk', [StoreController::class, 'catalog'])->name('catalog');
     Route::get('/produk/{slug}', [StoreController::class, 'product'])->name('product');
 
-    // Customer Authentication
+    // Authentication
     Route::get('/login', fn () => view('auth.login'))->name('login');
     Route::post('/login', [AuthController::class, 'login'])->name('login.post');
 
@@ -27,13 +28,13 @@ Route::domain(env('APP_DOMAIN', '127.0.0.1'))->group(function () {
 
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    // Shopping Cart
+    // Cart
     Route::post('/keranjang/{id}', [StoreController::class, 'addCart'])->name('cart.add');
     Route::get('/keranjang', [StoreController::class, 'cart'])->name('cart');
     Route::patch('/keranjang/{id}', [StoreController::class, 'updateCart'])->name('cart.update');
     Route::delete('/keranjang/{id}', [StoreController::class, 'removeCart'])->name('cart.remove');
 
-    // Customer Address
+    // Address
     Route::get('/alamat', [StoreController::class, 'addresses'])->name('addresses');
     Route::post('/alamat', [StoreController::class, 'saveAddress'])->name('addresses.save');
 
@@ -47,67 +48,75 @@ Route::domain(env('APP_DOMAIN', '127.0.0.1'))->group(function () {
 
 // ==========================================
 // ADMIN WEBSITE
-// Domain: admin.luxskinbeauty.com
 // ==========================================
 
 Route::domain(env('ADMIN_DOMAIN', 'admin.luxskinbeauty.test'))->group(function () {
 
-    // Admin Login
-    Route::get('/login', fn () => view('admin.login'))
-        ->name('admin.login');
+    // Login
+    Route::get('/login', fn () => view('admin.login'))->name('admin.login');
+    Route::post('/login', [AuthController::class, 'adminLogin'])->name('admin.login.post');
 
-    Route::post('/login', [AuthController::class, 'adminLogin'])
-        ->name('admin.login.post');
-
-    // Protected Admin Pages
     Route::middleware(['admin'])->group(function () {
 
-        // Admin Logout
-        Route::post('/logout', [AuthController::class, 'adminLogout'])
-            ->name('admin.logout');
+        // Logout
+        Route::post('/logout', [AuthController::class, 'adminLogout'])->name('admin.logout');
 
         // Dashboard
-        Route::get('/', [AdminController::class, 'dashboard'])
-            ->name('admin');
+        Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
 
-        // Product Management (CRUD)
-        Route::get('/produk', [AdminController::class, 'products'])
-            ->name('admin.products');
+        // Product Management
+        Route::get('/produk', [AdminController::class, 'products'])->name('admin.products');
+        Route::get('/produk/tambah', [AdminController::class, 'createProduct'])->name('admin.products.create');
+        Route::post('/produk', [AdminController::class, 'storeProduct'])->name('admin.products.store');
+        Route::get('/produk/{id}/edit', [AdminController::class, 'editProduct'])->name('admin.products.edit');
+        Route::put('/produk/{id}', [AdminController::class, 'updateProduct'])->name('admin.products.update');
+        Route::delete('/produk/{id}', [AdminController::class, 'deleteProduct'])->name('admin.products.delete');
 
-        Route::get('/produk/tambah', [AdminController::class, 'createProduct'])
-            ->name('admin.products.create');
+        // Category Management
+        Route::resource('/kategori', KategoriController::class)
+            ->except(['show'])
+            ->names([
+                'index' => 'admin.categories.index',
+                'create' => 'admin.categories.create',
+                'store' => 'admin.categories.store',
+                'edit' => 'admin.categories.edit',
+                'update' => 'admin.categories.update',
+                'destroy' => 'admin.categories.destroy',
+            ]);
 
-        Route::post('/produk', [AdminController::class, 'storeProduct'])
-            ->name('admin.products.store');
+        // Brand Management
+        Route::resource('/brand', BrandController::class)
+            ->except(['show'])
+            ->names([
+                'index' => 'admin.brands.index',
+                'create' => 'admin.brands.create',
+                'store' => 'admin.brands.store',
+                'edit' => 'admin.brands.edit',
+                'update' => 'admin.brands.update',
+                'destroy' => 'admin.brands.destroy',
+            ]);
 
-        Route::get('/produk/{id}/edit', [AdminController::class, 'editProduct'])
-            ->name('admin.products.edit');
-
-        Route::put('/produk/{id}', [AdminController::class, 'updateProduct'])
-            ->name('admin.products.update');
-
-        Route::delete('/produk/{id}', [AdminController::class, 'deleteProduct'])
-            ->name('admin.products.delete');
+        // Product Image Management
+        Route::resource('/gambar-produk', GambarProdukController::class)
+            ->except(['show'])
+            ->names([
+                'index' => 'admin.gambar-produk.index',
+                'create' => 'admin.gambar-produk.create',
+                'store' => 'admin.gambar-produk.store',
+                'edit' => 'admin.gambar-produk.edit',
+                'update' => 'admin.gambar-produk.update',
+                'destroy' => 'admin.gambar-produk.destroy',
+            ]);
 
         // Order Management
-        Route::get('/pesanan', [AdminController::class, 'orders'])
-            ->name('admin.orders');
-
-        Route::patch('/pesanan/{id}', [AdminController::class, 'updateOrder'])
-            ->name('admin.orders.update');
+        Route::get('/pesanan', [AdminController::class, 'orders'])->name('admin.orders');
+        Route::patch('/pesanan/{id}', [AdminController::class, 'updateOrder'])->name('admin.orders.update');
         Route::post('/pesanan/{id}/konfirmasi-pembayaran', [AdminController::class, 'confirmPayment'])->name('admin.payment.confirm');
 
-        // Database / ERD Module Management
-        Route::get('/data/{table}', [AdminController::class, 'dataModule'])
-            ->name('admin.data');
-
-        Route::post('/data/{table}', [AdminController::class, 'storeData'])
-            ->name('admin.data.store');
-
-        Route::put('/data/{table}/{id}', [AdminController::class, 'updateData'])
-            ->name('admin.data.update');
-
-        Route::delete('/data/{table}/{id}', [AdminController::class, 'deleteData'])
-            ->name('admin.data.delete');
+        // Database / ERD
+        Route::get('/data/{table}', [AdminController::class, 'dataModule'])->name('admin.data');
+        Route::post('/data/{table}', [AdminController::class, 'storeData'])->name('admin.data.store');
+        Route::put('/data/{table}/{id}', [AdminController::class, 'updateData'])->name('admin.data.update');
+        Route::delete('/data/{table}/{id}', [AdminController::class, 'deleteData'])->name('admin.data.delete');
     });
 });
