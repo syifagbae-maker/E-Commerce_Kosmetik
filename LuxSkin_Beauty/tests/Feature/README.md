@@ -1,0 +1,1 @@
+Feature tests can be added here after configuring a test database.
