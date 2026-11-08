@@ -1,0 +1,10 @@
+[33m68b1585[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mnayla[m[33m)[m Menambahkan tampilan halaman dan controller dasar LuxSkin
+[33m6048ae2[m Menambahkan routing dan pengujian aplikasi
+[33m7ca8c7e[m Menambahkan aset visual dan JavaScript LuxSkin
+[33mef6eb7b[m Menambahkan controller pengelolaan administrasi
+[33mf444d46[m Menambahkan controller autentikasi dan toko
+[33m91b4df6[m Menambahkan model dan middleware aplikasi
+[33m514f871[m Menambahkan database, migration, dan seeder LuxSkin
+[33m2d80e66[m Menambahkan konfigurasi dan struktur dasar Laravel
+[33ma0cc2d1[m Menambahkan folder ERD
+[33m2a74440[m[33m ([m[1;31morigin/nahda[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Initial commit
