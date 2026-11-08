@@ -702,4 +702,75 @@ class StoreController extends Controller
 
         return view('account.orders', compact('orders'));
     }
+
+
+    // HALAMAN NEW ARRIVALS
+    public function newArrivals()
+    {
+        $products = DB::table('produk as p')
+            ->leftJoin('brand as b', 'b.id_brand', '=', 'p.id_brand')
+            ->leftJoin('kategori as k', 'k.id_kategori', '=', 'p.id_kategori')
+            ->where('p.status', 'aktif')
+            ->select('p.*', 'b.nama_brand', 'k.nama_kategori')
+            ->addSelect([
+                'path_gambar' => DB::table('gambar_produk as g')
+                    ->select('g.path_gambar')
+                    ->whereColumn('g.id_produk', 'p.id_produk')
+                    ->orderByDesc('g.gambar_utama')
+                    ->orderBy('g.urutan')
+                    ->orderBy('g.id_gambar')
+                    ->limit(1)
+            ])
+            ->orderByDesc('p.id_produk')
+            ->paginate(12);
+
+        return view('store.new-arrivals', compact('products'));
+    }
+
+    // HALAMAN BRANDS
+    public function brands()
+    {
+        $brands = DB::table('brand')
+            ->orderBy('nama_brand')
+            ->get();
+
+        return view('store.brands', compact('brands'));
+    }
+
+    // HALAMAN CATEGORIES
+    public function categories()
+    {
+        $categories = DB::table('kategori')
+            ->where('status', 'aktif')
+            ->orderBy('nama_kategori')
+            ->get();
+
+        return view('store.categories', compact('categories'));
+    }
+
+    // HALAMAN PROMOTIONS
+    public function promotions()
+    {
+        $products = DB::table('produk as p')
+            ->leftJoin('brand as b', 'b.id_brand', '=', 'p.id_brand')
+            ->leftJoin('kategori as k', 'k.id_kategori', '=', 'p.id_kategori')
+            ->where('p.status', 'aktif')
+            ->whereNotNull('p.harga_coret')
+            ->whereColumn('p.harga_coret', '>', 'p.harga')
+            ->select('p.*', 'b.nama_brand', 'k.nama_kategori')
+            ->addSelect([
+                'path_gambar' => DB::table('gambar_produk as g')
+                    ->select('g.path_gambar')
+                    ->whereColumn('g.id_produk', 'p.id_produk')
+                    ->orderByDesc('g.gambar_utama')
+                    ->orderBy('g.urutan')
+                    ->orderBy('g.id_gambar')
+                    ->limit(1)
+            ])
+            ->orderByDesc('p.id_produk')
+            ->paginate(12);
+
+        return view('store.promotions', compact('products'));
+    }
+
 }
