@@ -1,25 +1,29 @@
-# 💄 LUXSKIN BEAUTY
+# LUXSKIN BEAUTY
 ### Website E-Commerce Kosmetik
 
-LuxSkin Beauty merupakan aplikasi e-commerce berbasis website yang dikembangkan untuk memudahkan pelanggan dalam mencari, melihat, dan membeli berbagai produk kecantikan secara online. Aplikasi ini memiliki dua bagian utama, yaitu **Customer** sebagai halaman untuk aktivitas belanja dan **Admin** sebagai pusat pengelolaan produk serta aktivitas toko.
+## 1. Deskripsi Project
 
----
+LuxSkin Beauty adalah aplikasi e-commerce berbasis website yang dikembangkan untuk menyediakan layanan penjualan produk kosmetik secara online. Website ini memungkinkan pelanggan melihat katalog, mencari produk, memasukkan produk ke keranjang, dan melakukan pemesanan.
 
-## 📋 INFORMASI PROJECT
+Selain halaman pelanggan, tersedia halaman admin yang digunakan untuk mengelola data produk, kategori, brand, stok, serta pesanan.
 
-| Keterangan | Informasi |
+Project ini dibuat sebagai penerapan pengembangan aplikasi web menggunakan framework Laravel dan database MySQL.
+
+## 2. Identitas Project
+
+| Keterangan | Detail |
 |---|---|
-| Nama Project | LuxSkin Beauty |
-| Jenis Aplikasi | E-Commerce Kosmetik |
-| Platform | Website |
+| Nama Aplikasi | LuxSkin Beauty |
+| Jenis Aplikasi | E-Commerce |
+| Kategori | Penjualan Produk Kosmetik |
 | Framework | Laravel 12 |
 | Bahasa Pemrograman | PHP |
 | Database | MySQL |
 | Nama Database | `e_commerce_kosmetik` |
 
-## 👥 ANGGOTA KELOMPOK DAN BRANCH GITHUB
+## 3. Anggota Kelompok
 
-| No. | Nama Lengkap | NIM | Branch |
+| No. | Nama | NIM | Branch |
 |---|---|---|---|
 | 1 | Asyifa Panggabean | 2522105097 | `syifa` |
 | 2 | Siti Azizah Lubis | 2522105075 | `azizah` |
@@ -27,80 +31,63 @@ LuxSkin Beauty merupakan aplikasi e-commerce berbasis website yang dikembangkan 
 | 4 | Nayla Salsabila | 2522105058 | `nayla` |
 | 5 | Cantikha Nahda Ashila | 2522105096 | `nahda` |
 
-## 🎯 TUJUAN PENGEMBANGAN
+## 4. Teknologi Pengembangan
 
-Project LuxSkin Beauty dikembangkan dengan tujuan:
+Beberapa teknologi dan tools yang digunakan dalam pengembangan aplikasi:
 
-- Membangun platform penjualan produk kosmetik secara online.
-- Memudahkan pelanggan mencari produk berdasarkan kategori dan brand.
-- Menyediakan informasi produk, harga, stok, dan promosi.
-- Mempermudah proses pemesanan dan transaksi pelanggan.
-- Membantu admin mengelola produk dan aktivitas toko melalui dashboard.
-- Menerapkan penggunaan framework Laravel dan database MySQL dalam pengembangan aplikasi berbasis website.
-
-## 💻 TEKNOLOGI DAN APLIKASI YANG DIGUNAKAN
-
-| Teknologi / Aplikasi | Kegunaan |
+| Teknologi | Fungsi |
 |---|---|
-| Laravel 12 | Framework utama untuk membangun aplikasi |
+| Laravel 12 | Framework pengembangan aplikasi |
 | PHP | Bahasa pemrograman backend |
-| MySQL | Sistem penyimpanan dan pengelolaan database |
-| XAMPP | Menjalankan server lokal dan database |
-| HTML | Membuat struktur halaman website |
-| CSS | Mengatur desain dan tampilan website |
+| MySQL | Penyimpanan dan pengelolaan data |
+| HTML | Penyusunan struktur halaman |
+| CSS | Pengaturan tampilan website |
 | JavaScript | Menambahkan interaksi pada halaman |
-| Bootstrap | Membantu pembuatan komponen antarmuka |
-| Visual Studio Code | Editor untuk menulis dan mengelola kode program |
-| Composer | Mengelola dependency PHP dan Laravel |
-| Git & GitHub | Mengelola versi kode dan kolaborasi project |
+| Bootstrap | Membantu pembuatan antarmuka |
+| XAMPP | Menjalankan server lokal |
+| Composer | Mengelola library PHP |
+| Visual Studio Code | Editor kode program |
+| Git dan GitHub | Mengelola versi kode dan kolaborasi |
 
-## ✨ FITUR APLIKASI
+## 5. Fitur Aplikasi
 
-### 1. Halaman Customer
+### 5.1 Halaman Customer
 
-Halaman Customer merupakan bagian website yang digunakan pelanggan untuk melihat produk dan melakukan aktivitas belanja.
+- Melihat halaman utama website.
+- Melihat katalog produk kosmetik.
+- Melihat produk berdasarkan kategori dan brand.
+- Melihat detail produk.
+- Mencari produk.
+- Menambahkan produk ke keranjang.
+- Mengelola akun pelanggan.
+- Melakukan pemesanan dan melihat informasi pesanan.
 
-Fitur yang tersedia:
+### 5.2 Halaman Admin
 
-- **Homepage:** Menampilkan halaman utama, banner, dan informasi promosi.
-- **Katalog Produk:** Menampilkan daftar produk kosmetik yang tersedia.
-- **Kategori Produk:** Mengelompokkan produk berdasarkan kategori.
-- **Brand:** Menampilkan berbagai merek kosmetik.
-- **Detail Produk:** Menampilkan informasi produk, harga, deskripsi, dan gambar.
-- **Pencarian Produk:** Membantu pelanggan menemukan produk yang diinginkan.
-- **Keranjang Belanja:** Menampung produk yang akan dibeli.
-- **Akun Pelanggan:** Menyediakan akses akun pengguna.
-- **Pesanan:** Mendukung proses pemesanan dan pemantauan transaksi.
+- Melihat ringkasan data melalui dashboard.
+- Mengelola data produk.
+- Mengelola kategori produk.
+- Mengelola brand.
+- Mengatur stok produk.
+- Mengelola pesanan pelanggan.
+- Memperbarui status pesanan.
+- Mengelola informasi pembayaran.
+- Mengunggah gambar produk.
 
-### 2. Halaman Admin
+## 6. Alur Sistem
 
-Halaman Admin merupakan pusat pengelolaan aplikasi LuxSkin Beauty. Admin dapat mengatur informasi toko dan memantau aktivitas transaksi melalui dashboard.
+Secara umum, alur penggunaan LuxSkin Beauty adalah sebagai berikut:
 
-Fitur yang tersedia:
+1. Customer membuka website.
+2. Customer melihat katalog dan memilih produk.
+3. Customer membuka halaman detail produk.
+4. Customer memasukkan produk ke keranjang.
+5. Customer melanjutkan proses pemesanan.
+6. Sistem menyimpan data pesanan.
+7. Admin memeriksa pesanan melalui halaman dashboard.
+8. Admin memperbarui status pesanan sesuai proses transaksi.
 
-- **Dashboard:** Menampilkan ringkasan jumlah produk, pesanan, pelanggan, omzet, dan status transaksi.
-- **Manajemen Produk:** Menambah, mengedit, dan mengelola produk.
-- **Manajemen Kategori:** Mengelola kategori produk.
-- **Manajemen Brand:** Mengelola data merek kosmetik.
-- **Manajemen Stok:** Mengatur jumlah persediaan produk.
-- **Manajemen Pesanan:** Melihat dan mengelola pesanan pelanggan.
-- **Status Pesanan:** Memperbarui tahapan proses pesanan.
-- **Pembayaran:** Mengelola informasi dan status pembayaran.
-- **Upload Foto Produk:** Menambahkan foto produk melalui komputer.
-
-## 🔄 ALUR SISTEM
-
-Secara umum, alur penggunaan aplikasi LuxSkin Beauty adalah sebagai berikut:
-
-1. Pelanggan membuka website LuxSkin Beauty.
-2. Pelanggan melihat katalog dan memilih produk.
-3. Pelanggan memasukkan produk ke keranjang belanja.
-4. Pelanggan melanjutkan proses pemesanan.
-5. Sistem menyimpan informasi pesanan dan pembayaran.
-6. Admin memeriksa pesanan melalui dashboard.
-7. Admin memperbarui status pesanan sesuai proses transaksi.
-
-Status transaksi yang dikelola melalui dashboard admin meliputi:
+Status pesanan yang digunakan meliputi:
 
 - Menunggu Pembayaran
 - Dibayar
@@ -111,24 +98,27 @@ Status transaksi yang dikelola melalui dashboard admin meliputi:
 - Dibatalkan
 - Gagal
 
-## 🗄️ DATABASE
+## 7. Database
 
-Aplikasi LuxSkin Beauty menggunakan **MySQL** sebagai sistem manajemen database dengan nama database:
+Aplikasi menggunakan database MySQL dengan nama `e_commerce_kosmetik`. Database berfungsi untuk menyimpan dan mengelola informasi yang dibutuhkan oleh sistem, seperti:
 
-`e_commerce_kosmetik`
+- Data pengguna
+- Data produk
+- Data kategori
+- Data brand
+- Data gambar produk
+- Data stok
+- Data pesanan
+- Data pembayaran
+- Status transaksi
 
-Database digunakan untuk menyimpan dan mengelola data yang dibutuhkan dalam proses operasional aplikasi, antara lain:
+## 8. Tujuan Pengembangan
 
-- Data pengguna dan pelanggan.
-- Data produk kosmetik.
-- Data kategori produk.
-- Data brand.
-- Data gambar produk.
-- Data stok produk.
-- Data pesanan pelanggan.
-- Data pembayaran.
-- Data status transaksi.
+Pengembangan LuxSkin Beauty bertujuan untuk menerapkan konsep pembuatan aplikasi e-commerce, mulai dari pengelolaan tampilan website, pemrosesan data, penggunaan database, hingga pengelolaan aktivitas pelanggan dan admin.
 
-Pengelolaan database dilakukan melalui phpMyAdmin yang tersedia pada XAMPP. Database ini menjadi pusat penyimpanan informasi yang menghubungkan aktivitas pelanggan dengan pengelolaan toko oleh admin.
+Project ini juga menjadi sarana bagi anggota kelompok untuk menerapkan keterampilan pemrograman web dan bekerja sama menggunakan GitHub.
 
 ---
+
+**LuxSkin Beauty**  
+*Your Beauty, Your Choice.*
